@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Landing from './pages/landing';
+import Login from './pages/login';
+import Profile from './pages/profile';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || 'null'));
+
+  const handleLoginSuccess = (userData) => {
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+    return <Navigate to="/profile" replace />;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route 
+          path="/login" 
+          element={
+            user ? (
+              <Navigate to="/profile" replace />
+            ) : (
+              <Login onLoginSuccess={handleLoginSuccess} />
+            )
+          } 
+        />
+        <Route
+          path="/profile"
+          element={
+            user ? (
+              <Profile user={user} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
