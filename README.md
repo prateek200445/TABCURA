@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# 🩺 Tabcura – AI-Powered Medical Prescription Reader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tabcura** is a real-time AI system designed to digitize handwritten medical prescriptions, intelligently structure healthcare data, and enable personalized health monitoring and medicine ordering. Built during the Reckon 6.0 Hackathon, Tabcura showcases the application of OCR, NLP, and data science pipelines in healthcare automation.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🔍 **OCR-Based Text Extraction**: Extracts text from handwritten prescriptions using image processing and Gemini API.
+- 🧠 **AI-Driven Entity Recognition**: Identifies key medical entities like drug names, dosages, frequencies, and treatment durations using custom classification models.
+- 📊 **Data Structuring**: Converts unstructured text into clean, structured medical records (JSON/DB format).
+- 🏥 **Categorization by Context**: Sorts patient records based on hospital, doctor, disease, and treatment history.
+- 🍽️ **Personalized Recommendations**: Suggests diet and follow-up treatment based on past data and current prescriptions.
+- 💊 **1-Tap Medicine Ordering**: Enables users to reorder medicines directly from the structured output.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧪 Tech Stack
 
-### `npm test`
+| Area           | Tools / Technologies                             |
+|----------------|--------------------------------------------------|
+| Languages      | Python, JavaScript, HTML/CSS                     |
+| Frontend       | React                                            |
+| Backend        | Node.js, Express                                 |
+| Data Science   | Pandas, NumPy, Regex, Scikit-learn               |
+| OCR & NLP      | Tesseract OCR, Gemini API, Regex, spaCy (planned)|
+| Database       | MongoDB                                          |
+| AI Assistant   | GitHub Copilot                                   |
+| Dev Tools      | Git, Jupyter, GitHub Actions, Streamlit (PoC)   |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 Data Science Workflow
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Image Preprocessing**: Resizing, grayscale, noise removal using OpenCV.
+2. **OCR Text Extraction**: Gemini Vision API to extract raw text from prescription images.
+3. **Text Cleaning & Tokenization**: Removed irrelevant characters, split into semantic units.
+4. **Entity Classification**: Custom rule-based and ML-based models to classify dosage, medicine name, frequency.
+5. **Data Structuring**: Transformed classified data into JSON documents.
+6. **Insight Generation**: Derived treatment patterns for disease tracking and recommendations.
+7. **User-Level Forecasting** *(Future Scope)*: Use LSTM/Time Series to predict future prescription needs.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Sample Output
 
-### `npm run eject`
+```json
+{
+  "patient": "John Doe",
+  "hospital": "XYZ Medical Centre",
+  "doctor": "Dr. Sharma",
+  "disease": "Diabetes",
+  "prescription": [
+    {"medicine": "Metformin", "dosage": "500mg", "frequency": "2 times/day"},
+    {"medicine": "Glimipiride", "dosage": "1mg", "frequency": "Once before breakfast"}
+  ],
+  "dietRecommendation": "Low sugar, high fiber, no alcohol",
+  "reorderOption": "Available"
+}
+**Future Enhancements**
+ Named Entity Recognition using spaCy/BERT for better context extraction
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ Integration with government APIs (e.g., Ayushman Bharat) for verification
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Time series forecasting for refill predictions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ Doctor authentication and QR-based record access
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👨‍💻 **Contributors**
+Prateek Lachwani – LinkedIn | GitHub
 
-## Learn More
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tabcura bridges the gap between unstructured handwritten prescriptions and structured digital healthcare — powered by AI, backed by data.
